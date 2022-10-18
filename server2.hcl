@@ -18,6 +18,9 @@
     "agent" = "e95b599e-166e-7d80-08ad-aee76e7ddf19"
   }
 }
+auto_encrypt = {
+  allow_tls = true
+}
 "encrypt" = "aPuGh+5UDskRAbkLaXRzFoSOcSM+5vAK+NEYOWHJH7w="
 "verify_incoming" = true
 "verify_outgoing" = true

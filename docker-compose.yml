@@ -75,7 +75,7 @@ services:
     container_name: consul-client1
 #    restart: always
     volumes:
-     - ./client1.json:/consul/config/client1.json
+     - ./client1.hcl:/consul/config/client1.hcl
      - ./acls/:/consul/config/acls/
      - ./certs/:/consul/config/certs/
     networks:
