@@ -1,0 +1,15 @@
+{
+  "enable_local_script_checks":true,
+    "services": [
+      {
+        "id": "red0",
+        "name": "redis",
+        "tags": [
+          "primary"
+        ],
+        "address": "11.11.11.13",
+        "port": 6379
+      }
+      
+    ]
+  }
