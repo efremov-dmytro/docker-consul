@@ -23,8 +23,8 @@ auto_encrypt = {
 }
 "encrypt" = "aPuGh+5UDskRAbkLaXRzFoSOcSM+5vAK+NEYOWHJH7w="
 "verify_incoming" = false
-"verify_outgoing" = false
-"verify_server_hostname" = false
+"verify_outgoing" = true
+"verify_server_hostname" = true
 "ca_file" = "/consul/config/certs/consul-agent-ca.pem"
 "cert_file" = "/consul/config/certs/dc1-server-consul-0.pem"
 "key_file" = "/consul/config/certs/dc1-server-consul-0-key.pem"
