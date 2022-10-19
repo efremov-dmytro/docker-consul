@@ -1,10 +1,10 @@
-"node_name" = "consul-server2"
+"node_name" = "server2"
 "datacenter" = "dc1"
 "domain" = "consul"
 "server" = true
 "ui" = true
 "data_dir" = "/consul/data"
-"retry_join" = ["consul-server1", "consul-server3"]
+"retry_join" = ["server1", "server3"]
 "addresses" = {
   "http" = "0.0.0.0"
 }
@@ -18,6 +18,10 @@
     "agent" = "e95b599e-166e-7d80-08ad-aee76e7ddf19"
   }
 }
+ports {
+  http = 8500
+  https = 8501
+}
 auto_encrypt = {
   allow_tls = true
 }
@@ -26,5 +30,5 @@ auto_encrypt = {
 "verify_outgoing" = true
 "verify_server_hostname" = true
 "ca_file" = "/consul/config/certs/consul-agent-ca.pem"
-"cert_file" = "/consul/config/certs/dc1-server-consul-0.pem"
-"key_file" = "/consul/config/certs/dc1-server-consul-0-key.pem"
+"cert_file" = "/consul/config/certs/dc1-server-consul-1.pem"
+"key_file" = "/consul/config/certs/dc1-server-consul-1-key.pem"

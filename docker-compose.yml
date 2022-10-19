@@ -7,7 +7,7 @@ services:
     container_name: consul-server1
 #    restart: always
     environment:
-      CONSUL_HTTP_ADDR: "consul-server1:8500"
+      CONSUL_HTTP_ADDR: "server1:8500"
       CONSUL_HTTP_TOKEN: "e95b599e-166e-7d80-08ad-aee76e7ddf19"
     volumes:
      - ./server1.hcl:/consul/config/server1.hcl
@@ -20,6 +20,7 @@ services:
         ipv4_address: 10.10.10.2
     ports:
       - "8500:8500"
+      - "8501:8501"
       - "8600:8600/tcp"
       - "8600:8600/udp"
     command: "agent -bootstrap-expect=3"
@@ -29,7 +30,7 @@ services:
     container_name: consul-server2
 #    restart: always
     environment:
-      CONSUL_HTTP_ADDR: "consul-server2:18500"
+      CONSUL_HTTP_ADDR: "server2:18500"
       CONSUL_HTTP_TOKEN: "e95b599e-166e-7d80-08ad-aee76e7ddf19"
     volumes:
      - ./server2.hcl:/consul/config/server2.hcl
@@ -43,6 +44,7 @@ services:
       - "18301:8301/udp"
       - "18300:8300/tcp"
       - "18500:8500"
+      - "18501:8501"
       - "18600:8600/tcp"
       - "18600:8600/udp"
     command: "agent -bootstrap-expect=3"
@@ -52,7 +54,7 @@ services:
     container_name: consul-server3
 #    restart: always
     environment:
-      CONSUL_HTTP_ADDR: "consul-server3:19500"
+      CONSUL_HTTP_ADDR: "server3:19500"
       CONSUL_HTTP_TOKEN: "e95b599e-166e-7d80-08ad-aee76e7ddf19"
     volumes:
      - ./server3.hcl:/consul/config/server3.hcl
@@ -66,6 +68,7 @@ services:
       - "19301:8301/udp"
       - "19300:8300/tcp"
       - "19500:8500"
+      - "19501:19501"
       - "19600:8600/tcp"
       - "19600:8600/udp"
     command: "agent -bootstrap-expect=3"
