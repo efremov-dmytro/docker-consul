@@ -4,7 +4,7 @@ services:
   
   consul-server1:
     image: consul:1.13.2
-    container_name: consul-server1
+    container_name: server1
 #    restart: always
     environment:
       CONSUL_HTTP_ADDR: "server1:8500"
@@ -27,7 +27,7 @@ services:
 
   consul-server2:
     image: consul:1.13.2
-    container_name: consul-server2
+    container_name: server2
 #    restart: always
     environment:
       CONSUL_HTTP_ADDR: "server2:18500"
@@ -51,7 +51,7 @@ services:
 
   consul-server3:
     image: consul:1.13.2
-    container_name: consul-server3
+    container_name: server3
 #    restart: always
     environment:
       CONSUL_HTTP_ADDR: "server3:19500"
@@ -75,7 +75,7 @@ services:
 
   consul-client1:
     image: consul:1.13.2
-    container_name: consul-client1
+    container_name: client1
 #    restart: always
     volumes:
      - ./client1.hcl:/consul/config/client1.hcl

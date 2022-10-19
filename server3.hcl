@@ -4,7 +4,8 @@
 "server" = true
 "ui" = true
 "data_dir" = "/consul/data"
-"retry_join" = ["server2", "server3"]
+"retry_join" = ["server2.dc1.consul", "server3.dc1.consul"]
+"client_addr" = "0.0.0.0"
 "addresses" = {
   "http" = "0.0.0.0"
 }
@@ -19,7 +20,7 @@
   }
 }
 ports {
-  http = 8500
+  http = -1
   https = 8501
 }
 auto_encrypt = {
@@ -29,6 +30,9 @@ auto_encrypt = {
 "verify_incoming" = false
 "verify_outgoing" = true
 "verify_server_hostname" = true
+"verify_incoming_rpc" = true
 "ca_file" = "/consul/config/certs/consul-agent-ca.pem"
-"cert_file" = "/consul/config/certs/server3.dc1.consul.crt"
-"key_file" = "/consul/config/certs/server3.dc1.consul.key"
+"cert_file" = "/consul/config/certs/dc1-server-consul-2.pem"
+"key_file" = "/consul/config/certs/dc1-server-consul-2-key.pem"
+#"cert_file" = "/consul/config/certs/server3.dc1.consul.crt"
+#"key_file" = "/consul/config/certs/server3.dc1.consul.key"
