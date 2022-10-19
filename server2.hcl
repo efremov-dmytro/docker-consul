@@ -30,5 +30,5 @@ auto_encrypt = {
 "verify_outgoing" = true
 "verify_server_hostname" = true
 "ca_file" = "/consul/config/certs/consul-agent-ca.pem"
-"cert_file" = "/consul/config/certs/dc1-server-consul-1.pem"
-"key_file" = "/consul/config/certs/dc1-server-consul-1-key.pem"
+"cert_file" = "/consul/config/certs/server2.dc1.consul.crt"
+"key_file" = "/consul/config/certs/server2.dc1.consul.key"
