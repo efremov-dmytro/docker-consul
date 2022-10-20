@@ -2,8 +2,9 @@
   "enable_local_script_checks":true,
     "services": [
       {
-        "id": "red0",
+        "id": "redis",
         "name": "redis",
+        "token": "bb0de8a3-f93f-8444-e983-d1565bedc8a0",
         "tags": [
           "primary"
         ],
