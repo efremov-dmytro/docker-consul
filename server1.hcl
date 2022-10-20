@@ -24,20 +24,44 @@ ports {
   http = -1
   https = 8501
 }
-"service" = {
-  "id" = "redis"
-  "name" = "redis"
-  "tags" = ["primary"]
-  "address" = "11.11.11.13"
-  "port" = 6379
-  "enable_tag_override" = false
-  "token" = "68a05bbc-fc43-cdb5-0889-0e28148e1bf1"
-  "check" = {
-    "id" = "redis"
-    "name" = "Consul REDIS"
-    "tcp" = "11.11.11.13:6379"
-    "interval" = "10s"
-    "timeout" = "1s"
+services {
+  id = "redis"
+  name = "redis"
+  tags = ["primary"]
+  address = "11.11.11.13"
+  port = 6379
+  enable_tag_override = false
+  token = "68a05bbc-fc43-cdb5-0889-0e28148e1bf1"
+  check = {
+    id = "redis"
+    name = "Consul REDIS"
+    tcp = "11.11.11.13:6379"
+    interval = "10s"
+    timeout = "1s"
+  }
+}
+services {
+  name = "counting1",
+  id = "counting-1",
+  port = 9001,
+  token = "e6f4b0c8-c753-9c07-f099-1cb222b9ca7b",
+  check {
+    http = "http://11.11.11.13:9003/health",
+    method = "GET",
+    interval = "1s",
+    timeout = "1s",
+  }
+}
+services {
+  name = "dashboard1",
+  id = "dashboard-check",
+  port = 9002,
+  token = "7637e7ca-61a6-749d-8d77-d1665bfcd297",
+  check {
+    http = "http://11.11.11.13:9004/health",
+    method = "GET",
+    interval = "1s",
+    timeout = "1s"
   }
 }
 auto_encrypt = {

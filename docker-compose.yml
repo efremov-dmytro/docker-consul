@@ -137,6 +137,34 @@ services:
     networks:
       consul:
         ipv4_address: 10.10.10.9
+  dashboard1:
+    container_name: dashboard1
+    hostname: dashboard1
+    image: 'hashicorp/dashboard-service:0.0.4'
+    restart: always
+    ports:
+      - '9004:9004'
+    environment:
+      PORT: 9004
+      COUNTING_SERVICE_URL: 'http://counting-service:9004'
+    depends_on:
+      - counting-service
+    networks:
+      consul:
+        ipv4_address: 10.10.10.10
+
+  counting-service1:
+    container_name: counting-service1
+    hostname: counting-service1
+    image: 'hashicorp/counting-service:0.0.2'
+    restart: always
+    ports:
+      - '9003:9003'
+    environment:
+      PORT: 9003
+    networks:
+      consul:
+        ipv4_address: 10.10.10.11
 volumes:
   cache:
     driver: local
