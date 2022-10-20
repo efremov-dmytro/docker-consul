@@ -26,6 +26,22 @@ ports {
 auto_encrypt = {
   allow_tls = true
 }
+"service" = {
+  "id" = "redis1"
+  "name" = "redis1"
+  "tags" = ["secondary"]
+  "address" = "11.11.11.13"
+  "port" = 6389
+  "enable_tag_override" = false
+  "token" = "f11d2f74-a3a1-7142-c315-61258599b53b"
+  "check" = {
+    "id" = "redis"
+    "name" = "Consul REDIS1"
+    "tcp" = "11.11.11.13:6389"
+    "interval" = "10s"
+    "timeout" = "1s"
+  }
+}
 "encrypt" = "aPuGh+5UDskRAbkLaXRzFoSOcSM+5vAK+NEYOWHJH7w="
 "verify_incoming" = false
 "verify_outgoing" = true

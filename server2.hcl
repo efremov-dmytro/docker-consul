@@ -23,6 +23,30 @@ ports {
   http = -1
   https = 8501
 }
+services {
+  name = "counting",
+  id = "counting-1",
+  port = 9001,
+  token = "6a79a2f8-86ce-efba-f1ae-d59e022fd0cc",
+  check {
+    http = "http://11.11.11.13:9001/health",
+    method = "GET",
+    interval = "1s",
+    timeout = "1s",
+  }
+}
+services {
+  name = "dashboard",
+  id = "dashboard-check",
+  port = 9002,
+  token = "358c961b-400a-acdd-4299-78c9f161ef39",
+  check {
+    http = "http://11.11.11.13:9002/health",
+    method = "GET",
+    interval = "1s",
+    timeout = "1s"
+  }
+}
 auto_encrypt = {
   allow_tls = true
 }

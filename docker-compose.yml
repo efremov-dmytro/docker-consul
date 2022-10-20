@@ -97,6 +97,46 @@ services:
     command: redis-server --save 20 1 --loglevel warning --requirepass eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
     volumes: 
       - cache:/data
+  redis1:
+    image: redis:6.2-alpine
+    container_name: redis1
+    restart: always
+    networks:
+      consul:
+        ipv4_address: 10.10.10.7
+    ports:
+      - '6389:6379'
+    command: redis-server --save 20 1 --loglevel warning --requirepass eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
+    volumes: 
+      - cache:/data1
+  dashboard:
+    container_name: dashboard
+    hostname: dashboard
+    image: 'hashicorp/dashboard-service:0.0.4'
+    restart: always
+    ports:
+      - '9002:9002'
+    environment:
+      PORT: 9002
+      COUNTING_SERVICE_URL: 'http://counting-service:9002'
+    depends_on:
+      - counting-service
+    networks:
+      consul:
+        ipv4_address: 10.10.10.8
+
+  counting-service:
+    container_name: counting-service
+    hostname: counting-service
+    image: 'hashicorp/counting-service:0.0.2'
+    restart: always
+    ports:
+      - '9001:9001'
+    environment:
+      PORT: 9001
+    networks:
+      consul:
+        ipv4_address: 10.10.10.9
 volumes:
   cache:
     driver: local
